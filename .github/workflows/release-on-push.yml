@@ -15,7 +15,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-tags: true
+          # We intended to fetch tags, but it seems the simple
+          # `fetch-tags: true` doesn't work. The
+          # https://github.com/actions/checkout/issues/1471 thread described the
+          # discussion and suggested the following way that may balance between
+          # a deep fetch and speed.
+          fetch-depth: 0
+          filter: tree:0
       - name: Get latest tag
         id: get_latest_tag
         run: |
