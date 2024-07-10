@@ -1,6 +1,7 @@
 name: Create a Release on Push
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
