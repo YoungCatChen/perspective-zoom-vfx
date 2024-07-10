@@ -29,12 +29,12 @@ jobs:
           echo "Latest tag: $TAG"
           TAG2=$( echo "$TAG" | awk -v 'FS=.' '{print $1 "." $2 "." $3 + 1}' )
           echo "New tag: $TAG2"
-          echo "::set-output name=new_tag::$TAG2"
+          echo "new_tag=$TAG2" >> $GITHUB_ENV
       - name: Build
         run: cd dist && zip -1 -v PerspectiveZoom.drfx -r Edit/ Fusion/
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           files: dist/PerspectiveZoom.drfx
-          tag_name: ${{ steps.get_version.outputs.new_tag }}
-          name: Release ${{ steps.get_version.outputs.new_tag }}
+          tag_name: ${{ env.new_tag }}
+          name: Release ${{ env.new_tag }}
