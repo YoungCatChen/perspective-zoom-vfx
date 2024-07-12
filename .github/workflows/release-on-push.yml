@@ -9,7 +9,7 @@ on:
       - dist/**
 
 jobs:
-  build:
+  checkout-zip-and-release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
