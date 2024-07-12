@@ -48,7 +48,6 @@
         Input9 = InstanceInput {
           SourceOp = "Camera3D_1",
           Source = "EnableTransition",
-          Default = 1,
         },
         Input10 = InstanceInput {
           SourceOp = "Camera3D_1",
@@ -95,6 +94,7 @@
       ViewInfo = GroupInfo { Pos = { 0, 0 } },
       Tools = ordered() {
         Camera3D_1 = Camera3D {
+          CtrlWZoom = false,
           NameSet = true,
           Inputs = {
             TransitionControls = Input { Value = 1 },
@@ -104,10 +104,10 @@
             },
             ["Transform3DOp.Rotate.RotOrder"] = Input { Value = FuID { "ZYX" } },
             ["Transform3DOp.Rotate.X"] = Input {
-              Expression = "-((B.Center.Y - A.Center.Y) * ProgressAngle + A.Center.Y - 0.5) * 2 * atan(11 / SourceFLength) * 180 / pi * 9 / 16",
+              Expression = "-((B.Center.Y - A.Center.Y) * ProgressAngle + A.Center.Y - 0.5) * 2 * atan(11 / SourceFLength * 9 / 16) * 180 / pi",
             },
             ["Transform3DOp.Rotate.Y"] = Input {
-              Expression = "  ((B.Center.X - A.Center.X) * ProgressAngle + A.Center.X - 0.5) * 2 * atan(11 / SourceFLength) * 180 / pi\n",
+              Expression = " ((B.Center.X - A.Center.X) * ProgressAngle + A.Center.X - 0.5) * 2 * atan(11 / SourceFLength) * 180 / pi",
             },
             ["Transform3DOp.Rotate.Z"] = Input { Expression = "Rotate" },
             ["Transform3DOp.PivotNest"] = Input { Value = 1 },
@@ -128,13 +128,11 @@
             ["MtlStdInputs.MaterialID"] = Input { Value = 2 },
             SourceControls = Input { Value = 1 },
             TransformControls = Input { Value = 1 },
-            EnableTransition = Input { Value = 1 },
             Progress = Input {
               SourceOp = "Curve",
               Source = "Value",
             },
             ProgressAngle = Input {
-              Value = 0.44537815451622,
               Expression = "iif(A.ScalePower == B.ScalePower, Curve.Value, (0.5 ^ (((B.ScalePower - A.ScalePower) * Curve.Value + A.ScalePower)) - 0.5 ^ A.ScalePower) / (0.5 ^ B.ScalePower - 0.5 ^ A.ScalePower))",
             },
           },
@@ -149,8 +147,8 @@
               INP_MinScale = 0,
               INP_MinAllowed = -1000000,
               LINKID_DataType = "Number",
-              INP_Passive = true,
               LBLC_NestLevel = 1,
+              INP_Passive = true,
               INP_External = false,
               LINKS_Name = "Source Video",
             },
@@ -211,8 +209,8 @@
               INP_MinScale = 0,
               INP_MinAllowed = -1000000,
               LINKID_DataType = "Number",
-              INP_Passive = true,
               LBLC_NestLevel = 1,
+              INP_Passive = true,
               INP_External = false,
               LINKS_Name = "Transform",
             },
@@ -322,7 +320,10 @@
               SourceOp = "Curve查找表",
               Source = "Value",
             },
-            Scale = Input { Expression = "iif(Camera3D_1.EnableTransition == 1, 1, 0)" },
+            Scale = Input {
+              Value = 0,
+              Expression = "iif(Camera3D_1.EnableTransition == 1, 1, 0)",
+            },
           },
         },
         ["Curve查找表"] = LUTBezier {
@@ -350,7 +351,6 @@
           ViewInfo = OperatorInfo { Pos = { 385, 49.5 } },
         },
         Renderer3D_1 = Renderer3D {
-          CtrlWZoom = false,
           NameSet = true,
           CustomData = { ToolVersion = 2 },
           Inputs = {
