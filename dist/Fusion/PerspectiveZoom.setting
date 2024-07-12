@@ -1,4 +1,4 @@
-{
+{  -- vim:set filetype=lua:
   Tools = ordered() {
     PerspectiveZoom = MacroOperator {
       Inputs = ordered() {
@@ -72,13 +72,22 @@
         },
         Input14 = InstanceInput {
           SourceOp = "Curve",
-          Source = "EaseIn",
-          Width = 0.5,
+          Source = "Curve",
         },
         Input15 = InstanceInput {
           SourceOp = "Curve",
+          Source = "EaseIn",
+          Width = 0.5,
+        },
+        Input16 = InstanceInput {
+          SourceOp = "Curve",
           Source = "EaseOut",
           Width = 0.5,
+        },
+        Input17 = InstanceInput {
+          SourceOp = "Curve",
+          Source = "Lookup",
+          ControlGroup = 17,
         },
         MainInput1 = InstanceInput {
           SourceOp = "ImagePlane3D_1",
@@ -335,6 +344,7 @@
           },
           SplineColor = { Red = 255, Green = 255, Blue = 255 },
           CtrlWZoom = false,
+          NameSet = true,
         },
         Merge3D_1 = Merge3D {
           NameSet = true,
