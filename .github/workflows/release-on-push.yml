@@ -15,6 +15,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          sparse-checkout: |
+            dist
           # We intended to fetch tags, but it seems the simple
           # `fetch-tags: true` doesn't work. The
           # https://github.com/actions/checkout/issues/1471 thread described the
