@@ -1,93 +1,108 @@
-{  -- vim:set filetype=lua:
+-- Generated; do not change.
+-- vim:set filetype=lua:
+{
   Tools = ordered() {
     PerspectiveZoom = MacroOperator {
       Inputs = ordered() {
+        Comments = Input {
+          Value = "PerspectiveZoom %VERSION% (%DATE%) \n  Created by YoungCatChen \n  https://github.com/YoungCatChen/perspective-zoom-vfx \n\nThanks for downloading PerspectiveZoom! Happy zooming and panning!",
+        },
         Input1 = InstanceInput {
+          SourceOp = "Camera3D_1",
+          Source = "OpenWebsite",
+        },
+        Blank1 = InstanceInput { SourceOp = "Renderer3D_1", Source = "Blank5" },
+        Input2 = InstanceInput {
           SourceOp = "Camera3D_1",
           Source = "SourceControls",
           Default = 1,
         },
-        Input2 = InstanceInput {
+        Input3 = InstanceInput {
           SourceOp = "Camera3D_1",
           Source = "SourceFLength",
           Default = 20,
         },
-        Input3 = InstanceInput {
+        Input4 = InstanceInput {
           SourceOp = "Camera3D_1",
           Source = "Pitch",
           Default = 0,
         },
-        Input4 = InstanceInput {
+        Input5 = InstanceInput {
           SourceOp = "Camera3D_1",
           Source = "Yaw",
           Default = 0,
         },
-        Input5 = InstanceInput {
+        Input6 = InstanceInput {
           SourceOp = "Camera3D_1",
           Source = "Rotate",
           Default = 0,
         },
-        Blank1 = InstanceInput { SourceOp = "Renderer3D_1", Source = "Blank5" },
-        Input6 = InstanceInput {
+        Blank2 = InstanceInput { SourceOp = "Renderer3D_1", Source = "Blank5" },
+        Input7 = InstanceInput {
           SourceOp = "Camera3D_1",
           Source = "TransformControls",
           Default = 1,
         },
-        Input7 = InstanceInput {
+        Input8 = InstanceInput {
           SourceOp = "Camera3D_1",
           Source = "A.ScalePower",
           Default = 0,
         },
-        Input8 = InstanceInput {
+        Input9 = InstanceInput {
           SourceOp = "Camera3D_1",
           Source = "A.Center",
           DefaultX = 0.5,
           DefaultY = 0.5,
         },
-        Blank2 = InstanceInput { SourceOp = "Renderer3D_1", Source = "Blank5" },
-        Input9 = InstanceInput {
+        Blank3 = InstanceInput { SourceOp = "Renderer3D_1", Source = "Blank5" },
+        Input10 = InstanceInput {
+          SourceOp = "Camera3D_1",
+          Source = "TransitionControls",
+          Default = 1,
+        },
+        Input11 = InstanceInput {
           SourceOp = "Camera3D_1",
           Source = "EnableTransition",
         },
-        Input10 = InstanceInput {
+        Input12 = InstanceInput {
           SourceOp = "Camera3D_1",
           Source = "Copy",
           Width = 0.5,
         },
-        Input11 = InstanceInput {
+        Input13 = InstanceInput {
           SourceOp = "Camera3D_1",
           Source = "Swap",
           Width = 0.5,
         },
-        Input12 = InstanceInput {
+        Input14 = InstanceInput {
           SourceOp = "Camera3D_1",
           Source = "B.ScalePower",
           Default = 0,
         },
-        Input13 = InstanceInput {
+        Input15 = InstanceInput {
           SourceOp = "Camera3D_1",
           Source = "B.Center",
           DefaultX = 0.5,
           DefaultY = 0.5,
         },
-        Input14 = InstanceInput {
+        Input16 = InstanceInput {
           SourceOp = "Curve",
           Source = "Curve",
         },
-        Input15 = InstanceInput {
+        Input17 = InstanceInput {
           SourceOp = "Curve",
           Source = "EaseIn",
           Width = 0.5,
         },
-        Input16 = InstanceInput {
+        Input18 = InstanceInput {
           SourceOp = "Curve",
           Source = "EaseOut",
           Width = 0.5,
         },
-        Input17 = InstanceInput {
+        Input19 = InstanceInput {
           SourceOp = "Curve",
           Source = "Lookup",
-          ControlGroup = 17,
+          ControlGroup = 19,
         },
         MainInput1 = InstanceInput {
           SourceOp = "ImagePlane3D_1",
@@ -103,10 +118,8 @@
       ViewInfo = GroupInfo { Pos = { 0, 0 } },
       Tools = ordered() {
         Camera3D_1 = Camera3D {
-          CtrlWZoom = false,
           NameSet = true,
           Inputs = {
-            TransitionControls = Input { Value = 1 },
             ["Transform3DOp.Translate.Z"] = Input {
               Value = 0.909090909090909,
               Expression = "SourceFLength / 22",
@@ -137,6 +150,7 @@
             ["MtlStdInputs.MaterialID"] = Input { Value = 2 },
             SourceControls = Input { Value = 1 },
             TransformControls = Input { Value = 1 },
+            TransitionControls = Input { Value = 1 },
             Progress = Input {
               SourceOp = "Curve",
               Source = "Value",
@@ -147,6 +161,17 @@
           },
           ViewInfo = OperatorInfo { Pos = { 385, -16.5 } },
           UserControls = ordered() {
+            OpenWebsite = {
+              INP_MaxAllowed = 1000000,
+              INP_Integer = false,
+              INPID_InputControl = "ButtonControl",
+              BTNCS_Execute = 'os.execute(\'open "" "https://github.com/YoungCatChen/perspective-zoom-vfx"\')\n os.execute(\'start "" "https://github.com/YoungCatChen/perspective-zoom-vfx"\')',
+              INP_MaxScale = 1,
+              INP_MinScale = 0,
+              INP_MinAllowed = -1000000,
+              LINKID_DataType = "Number",
+              LINKS_Name = "@YoungCatChen",
+            },
             SourceControls = {
               INP_MaxAllowed = 1000000,
               INP_Integer = false,
@@ -156,8 +181,8 @@
               INP_MinScale = 0,
               INP_MinAllowed = -1000000,
               LINKID_DataType = "Number",
-              LBLC_NestLevel = 1,
               INP_Passive = true,
+              LBLC_NestLevel = 1,
               INP_External = false,
               LINKS_Name = "Source Video",
             },
@@ -218,8 +243,8 @@
               INP_MinScale = 0,
               INP_MinAllowed = -1000000,
               LINKID_DataType = "Number",
-              LBLC_NestLevel = 1,
               INP_Passive = true,
+              LBLC_NestLevel = 1,
               INP_External = false,
               LINKS_Name = "Transform",
             },
@@ -246,13 +271,27 @@
               OFCD_DisplayXScale = 1,
               LINKS_Name = "Center",
             },
+            TransitionControls = {
+              INP_MaxAllowed = 1000000,
+              INP_Integer = false,
+              INPID_InputControl = "LabelControl",
+              LBLC_NumInputs = 2,
+              INP_MaxScale = 1,
+              INP_MinScale = 0,
+              INP_MinAllowed = -1000000,
+              LINKID_DataType = "Number",
+              INP_Passive = true,
+              LBLC_NestLevel = 1,
+              INP_External = false,
+              LINKS_Name = "Transform at End",
+            },
             EnableTransition = {
               CBC_TriState = false,
               INP_Integer = false,
               INP_External = false,
               LINKID_DataType = "Number",
               INPID_InputControl = "CheckboxControl",
-              LINKS_Name = "Ending Transform",
+              LINKS_Name = "Enabled",
             },
             Copy = {
               ICD_Width = 0.5,
@@ -361,6 +400,7 @@
           ViewInfo = OperatorInfo { Pos = { 385, 49.5 } },
         },
         Renderer3D_1 = Renderer3D {
+          CtrlWZoom = false,
           NameSet = true,
           CustomData = { ToolVersion = 2 },
           Inputs = {
