@@ -25,18 +25,22 @@ jobs:
           fetch-depth: 0
           filter: tree:0
       - name: Get latest tag
-        id: get_latest_tag
         run: |
-          TAG=$( git describe --tags `git rev-list --tags --max-count=1` )
+          TAG="$( git describe --tags `git rev-list --tags --max-count=1` )"
           echo "Latest tag: $TAG"
-          TAG2=$( echo "$TAG" | awk -v 'FS=.' '{print $1 "." $2 "." $3 + 1}' )
-          echo "New tag: $TAG2"
-          echo "new_tag=$TAG2" >> $GITHUB_ENV
-      - name: Build
-        run: cd dist && zip -1 -v PerspectiveZoom.drfx -r Edit/ Fusion/
+          NEW_TAG="$( echo "$TAG" | awk -v 'FS=.' '{print $1 "." $2 "." $3 + 1}' )"
+          echo "New tag: $NEW_TAG"
+          echo "NEW_TAG=$NEW_TAG" >> $GITHUB_ENV
+      - name: Zip
+        run: |
+          cd dist
+          DATE="$( TZ=America/Los_Angeles date '+%Y-%m-%d' )"
+          echo "Will do sed -e s/%VERSION%/${{ env.NEW_TAG }}/ -e s/%DATE%/$DATE/"
+          sed -e 's/%VERSION%/${{ env.NEW_TAG }}/' -e "s/%DATE%/$DATE/" -i Fusion/*.setting
+          zip -1 -v PerspectiveZoom.drfx -r Edit/ Fusion/
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           files: dist/PerspectiveZoom.drfx
-          tag_name: ${{ env.new_tag }}
-          name: Release ${{ env.new_tag }}
+          tag_name: ${{ env.NEW_TAG }}
+          name: Release ${{ env.NEW_TAG }}
