@@ -31,15 +31,17 @@ https://github.com/user-attachments/assets/e40259fb-8902-4a62-999f-45ef20b6d3e9
 
 ▼ Built-in transform: zooms in quickly at first and slowly at last [^zoom]
 
-https://github.com/user-attachments/assets/a9990614-0fe8-4aa8-9d8c-c5fe7387e7cc
+<img width="540" src="https://github.com/user-attachments/assets/406fd284-ff9d-4db1-a6bf-873edc5c2da2">
 
+\
 ▼ This plugin: zooms in at a constant speed [^zoom]
 
-https://github.com/user-attachments/assets/5c9f2da1-3847-4615-8bb4-3717de8a8de3
+<img width="540" src="https://github.com/user-attachments/assets/e98083e1-baf7-4dcb-a14a-6c170bd28998">
 
+\
 ▼ This plugin: ease-in / ease-out for zoom speed [^zoom]
 
-https://github.com/user-attachments/assets/fa2cdc64-788d-4bc6-9ce4-68e1d3fd3737
+<img width="540" src="https://github.com/user-attachments/assets/e7e7dfe0-c587-44ee-a1b0-24fcd36b086c">
 
 ### Control zoom and pan natually
 
