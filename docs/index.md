@@ -6,12 +6,6 @@ while keeping correct perspective.
 (video with effect panel: mouse dragging zoom in, moves center to left, zoom
 out, moves back to center)
 
-<style>
-  video {
-    margin-bottom: 1.5em;
-  }
-</style>
-
 ## Installation
 
 1. Click on the latest release on the right-hand side column, then download the
@@ -27,35 +21,25 @@ out, moves back to center)
 
 ▼ Built-in transform: keeps wide-angle lens distortion [^persp]
 
-<video controls muted width="720">
-  <source src="perspective1.mp4" type="video/mp4" />
-</video>
+https://github.com/user-attachments/assets/bbe559aa-8a5a-4488-ba9e-587dbfcdd0fb
 
 ▼ This plugin: removes distortion [^persp]
 
-<video controls muted width="720">
-  <source src="perspective2.mp4" type="video/mp4" />
-</video>
+https://github.com/user-attachments/assets/e40259fb-8902-4a62-999f-45ef20b6d3e9
 
 ### Zoom in natually at a smooth speed
 
 ▼ Built-in transform: zooms in quickly at first and slowly at last [^zoom]
 
-<video loop controls muted width="540">
-  <source src="zoom1.mp4" type="video/mp4" />
-</video>
+https://github.com/user-attachments/assets/a9990614-0fe8-4aa8-9d8c-c5fe7387e7cc
 
 ▼ This plugin: zooms in at a constant speed [^zoom]
 
-<video loop controls muted width="540">
-  <source src="zoom2.mp4" type="video/mp4" />
-</video>
+https://github.com/user-attachments/assets/5c9f2da1-3847-4615-8bb4-3717de8a8de3
 
 ▼ This plugin: ease-in / ease-out for zoom speed [^zoom]
 
-<video loop controls muted width="540">
-  <source src="zoom3.mp4" type="video/mp4" />
-</video>
+https://github.com/user-attachments/assets/fa2cdc64-788d-4bc6-9ce4-68e1d3fd3737
 
 ### Control zoom and pan natually
 
