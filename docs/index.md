@@ -41,7 +41,7 @@ https://github.com/user-attachments/assets/e40259fb-8902-4a62-999f-45ef20b6d3e9
 \
 ▼ This plugin: ease-in / ease-out for zoom speed [^zoom]
 
-<img width="540" src="https://github.com/user-attachments/assets/e7e7dfe0-c587-44ee-a1b0-24fcd36b086c">
+<img width="540" src="https://github.com/user-attachments/assets/c8533f20-2f63-4d50-88e2-11728afdc739">
 
 ### Control zoom and pan natually
 
